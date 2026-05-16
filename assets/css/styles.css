@@ -1,0 +1,619 @@
+@import "./variables.css";
+@import "./reset.css";
+
+/* A partir de aquí van los estilos de tus componentes (Header, etc.) */
+
+/* --- 2. ESTILOS MEJORADOS DEL HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgb(3, 0, 0); /* Blanco con un toque mínimo de transparencia */
+    backdrop-filter: blur(5px); /* Efecto esmerilado/borroso detrás del header (muy moderno) */
+    box-shadow: 0 4px 20px rgba(17, 2, 2, 0.664);
+    position: sticky; /* Hace que el header se quede fijo arriba al hacer scroll */
+    top: 0;
+    z-index: 100; /* Asegura que quede por encima del slider y de todo lo demás */
+}
+
+/* Quitar el estilo de enlace azul por defecto al contenedor del logo */
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+}
+/* Esto blinda al logo para que ignore cualquier efecto de hover no deseado */
+.logo-link:hover {
+    color: inherit;
+    text-decoration: none;
+    background: none;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+header .logo img {
+    height: 45px;
+    width: auto;
+    border-radius: 50%; /* Si tu logo es cuadrado, esto lo hará redondo y estilizado */
+    object-fit: cover;
+}
+
+header .logo h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-blanco);
+    letter-spacing: -0.5px;
+}
+
+/* Resaltamos el "Freelancer" con tu color principal */
+header .logo h1 span {
+    color: var(--color-oro);
+    font-weight: 400;
+    font-size: 1rem;
+    display: block; /* Hace que "Freelancer" vaya abajo del nombre en texto chico, queda muy pro */
+}
+
+/* --- ENLACES DE NAVEGACIÓN CON EFECTO CUADRO --- */
+header ul {
+    display: flex;
+    list-style: none;
+    align-items: center; /* Asegura que todos los links estén centrados verticalmente */
+    gap: 10px; /* Achicamos un poco el espacio entre elementos porque el padding sumará tamaño */
+}
+
+header nav a {
+    text-decoration: none;
+    color: var(--color-principal); 
+    font-weight: 500; 
+    font-size: 1rem;
+    
+    /* El truco: Creamos el espacio del cuadro desde el principio */
+    padding: 0.3rem 0.8rem; /* 0.6rem arriba/abajo y 1rem a los lados */
+    border-radius: 5px;   /* Bordes suavemente redondeados para el cuadro */
+    background-color: transparent; /* El fondo empieza siendo invisible */
+    
+    /* Suaviza tanto el cambio de color de la letra como el del fondo */
+    transition: all 0.3s ease; 
+}
+
+/* Efecto HOVER: Aquí pintamos el cuadro */
+header nav a:hover {
+    color: var(--color-oscuro); /* La letra cambia a dorado */
+    background-color: var(--color-oro); 
+    
+    
+}
+
+/* --- 5. SECCIÓN HERO CON SLIDER --- */
+.hero {
+    position: relative; /* Necesario para que el fondo se posicione bien */
+    min-height: 80vh;   /* Ocupa el 80% de la altura de la pantalla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    overflow: hidden;   /* Evita que las imágenes se salgan */
+    padding: 2rem 5%;
+}
+
+/* El fondo animado */
+.hero-slider-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Se queda atrás */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Llamamos a la animación: dura 12 segundos, es infinita y suave */
+    animation: sliderFondo 12s infinite; 
+}
+
+/* Capa oscura superpuesta para que el texto blanco se lea SIEMPRE bien */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Capa negra con 50% de transparencia */
+    z-index: 2; /* Por encima del fondo, por debajo del texto */
+}
+
+/* El texto del Hero */
+.hero-contenido {
+    position: relative;
+    z-index: 3; /* Por encima de todo para que se pueda leer y clickear el botón */
+    max-width: 800px;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+/* LA ANIMACIÓN: Cambia las imágenes en diferentes porcentajes de tiempo */
+@keyframes sliderFondo {
+    0%, 100% {
+        background-image: url(../img/cards/card4.jpg);
+    }
+    33% {
+        background-image: url(../img/cards/card5.jpg);
+    }
+    66% {
+        background-image: url(../img/cards/card7.webp);
+    }
+    66% {
+        background-image: url(../img/cards/card8.jpg);
+    }
+    
+}
+
+/* ==========================================================================
+   SECCIÓN SERVICIOS (Maquetado con Flexbox)
+   ========================================================================== */
+
+.seccion-servicios {
+    padding: 5rem 5%;
+    background-color: #f9fafb; /* Un fondo gris casi blanco para que resalten las tarjetas */
+}
+
+.titulo-seccion {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.titulo-seccion h2 {
+    font-size: 2.2rem;
+    color: var(--color-oscuro);
+    margin-bottom: 0.5rem;
+}
+
+.titulo-seccion p {
+    color: #6b7280; /* Gris suave para el subtítulo */
+    font-size: 1.1rem;
+}
+
+/* CONTENEDOR PADRE: Aquí activamos Flexbox */
+.contenedor-cards {
+    display: flex;
+    flex-wrap: wrap;       /* Permite que las tarjetas bajen si no entran en la pantalla */
+    justify-content: center; /* Centra las tarjetas si sobra espacio */
+    gap: 30px;             /* Separa las tarjetas de forma idéntica */
+    max-width: 1200px;
+    margin: 0 auto;        /* Centra todo el bloque en pantallas gigantes */
+}
+
+/* CONTENEDOR HIJO: La Tarjeta Individual */
+.card {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    
+    /* Configuración elástica de Flexbox */
+    flex: 1 1 300px; /* Crece y se achica, pero intenta medir mínimo 300px */
+    max-width: 380px; /* Evita que una tarjeta sola se estire feo en pantallas medianas */
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto cuando el usuario pasa el mouse por encima de la tarjeta */
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Detalles de adentro de la tarjeta */
+.card-icono {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    font-size: 1.4rem;
+    color: var(--color-oscuro);
+    margin-bottom: 1rem;
+}
+
+.card p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.card .precio {
+    display: block;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-oro); /* Tu toque dorado distintivo para el precio */
+}
+
+
+/* ==========================================================================
+   BOTONES REUTILIZABLES (Estilo combinados con tu Nav)
+   ========================================================================== */
+
+/* La clase base para CUALQUIER botón de la página */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 5px; /* Mismo redondeado que tu nav */
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+}
+
+/* El botón principal que combina con tu estilo */
+.btn-oro {
+    background-color: transparent;
+    color: var(--color-oro);
+    border: 2px solid var(--color-oro); /* Le da un borde dorado muy fino al principio */
+}
+
+/* Al pasar el mouse hace EXACTAMENTE el mismo efecto que tu menú */
+.btn-oro:hover {
+    color: var(--color-oscuro);
+    background-color: var(--color-oro);
+    transform: translateY(-3px); /* Un pequeño extra: se eleva un poquito al flotar */
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); /* Brillo dorado suave abajo */
+}
+
+
+
+/* ==========================================================================
+   PÁGINA DE CONTACTO (Formulario + Mapa) - Maquetado con Flexbox
+   ========================================================================== */
+
+.contenedor-contacto {
+    padding: 5rem 5% 2rem 5%; /* Menos padding abajo porque viene el mapa */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Centramos el formulario en la pantalla para que no quede gigante a lo ancho */
+.contacto-bloque-superior {
+    max-width: 650px;
+    margin: 0 auto 4rem auto; /* 4rem de separación con el mapa de abajo */
+}
+
+.contacto-formulario {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.grupo-input {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.grupo-input label {
+    font-weight: 600;
+    color: var(--color-oscuro);
+    font-size: 0.95rem;
+}
+
+.grupo-input input,
+.grupo-input textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: var(--color-oro);
+}
+
+.btn-enviar {
+    width: 100%;
+    border: 2px solid var(--color-oro);
+}
+
+/* El nuevo contenedor del Mapa abajo */
+.contacto-mapa-abajo {
+    max-width: 1000px; /* Un mapa ancho y panorámico elegante */
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.contacto-mapa-abajo iframe {
+    display: block; /* Elimina espacios vacíos raros abajo del iframe */
+}
+
+
+
+/* ==========================================================================
+   PÁGINA DE PRODUCTOS (CSS Grid Moderno)
+   ========================================================================== */
+
+.contenedor-productos {
+    padding: 5rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* EL CONTENEDOR PADRE: Aquí ocurre la magia de CSS Grid */
+.grid-productos {
+    display: grid;
+    /* Truco Pro: Crea columnas automáticamente de mínimo 320px, si no entran las baja */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px; /* Separación matemática perfecta horizontal y vertical */
+    margin-top: 3rem;
+}
+
+/* Estilos de las Tarjetas de Producto */
+.card-producto {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden; /* Corta la imagen para que respete las esquinas redondeadas */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column; /* Hace que el contenido interno de la card se ordene vertical */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Área de Imagen */
+.producto-imagen {
+    position: relative;
+    height: 200px;
+    width: 100%;
+}
+
+.producto-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la foto sin deformarla */
+}
+
+/* Etiquetas flotantes sobre la foto (ej: "Más Vendido") */
+.etiqueta-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--color-oro);
+    color: var(--color-oscuro);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Información del Producto */
+.producto-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Empuja el botón y precio siempre abajo de todo aunque los textos tengan largos diferentes */
+}
+
+.producto-info h3 {
+    font-size: 1.3rem;
+    color: var(--color-oscuro);
+    margin-bottom: 0.8rem;
+}
+
+.producto-info p {
+    color: #4b5563;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+/* Pie de la tarjeta (Precio + Botón) */
+.producto-pie {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Anclaje al fondo */
+    padding-top: 1rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.precio-oro {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-oro);
+}
+
+/* Retocamos un poquito tu botón para que quede más compacto en las tarjetas */
+.btn-producto {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    border: 1px solid var(--color-oro);
+}
+
+/* ==========================================================================
+   FOOTER Y REDES SOCIALES
+   ========================================================================== */
+
+footer {
+    background-color: rgb(3, 0, 0); /* Tu negro característico */
+    color: #ffffff;
+    padding: 3rem 5% 2rem 5%;
+    margin-top: auto;
+}
+
+.footer-contenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* El contenedor mágico: Pone el logo, la nav y las redes al mismo nivel */
+.footer-fila-principal {
+    display: flex;
+    justify-content: space-between; /* Separa los 3 elementos de extremo a extremo */
+    align-items: center;          /* Los centra perfectamente de forma vertical */
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Una línea divisoria muy sutil arriba del copy */
+    padding-bottom: 2rem;
+}
+
+/* El Logo del footer idéntico al del header */
+.footer-logo img {
+    height: 45px; /* Mismo tamaño exacto que tu header */
+    width: auto;
+    border-radius: 50%; /* Redondo y estilizado */
+    object-fit: cover;
+    display: block;
+}
+
+/* Menú inferior */
+.footer-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav a {
+    color: var(--color-principal);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+    color: var(--color-oro);
+}
+
+/* Contenedor de Redes */
+.footer-redes {
+    display: flex;
+    gap: 12px;
+}
+
+.red-social {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.red-social:hover {
+    color: var(--color-oscuro);
+    background-color: var(--color-oro);
+    border-color: var(--color-oro);
+    transform: translateY(-3px);
+}
+
+.footer-copy {
+    font-size: 0.85rem;
+    color: #6b7280;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (Para Celulares y Pantallas Chicas)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    
+  
+    header {
+        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        gap: 15px;
+        padding: 1.5rem 5%;
+    }
+
+    header ul {
+        flex-wrap: wrap; /* Si los links no entran en una fila, bajan solos sin estirar la pantalla */
+        justify-content: center;
+        gap: 5px; /* Achicamos un poco la separación del cuadro */
+    }
+
+    header nav a {
+        padding: 0.4rem 0.6rem; /* Cuadros un poco más pequeños en celular */
+        font-size: 0.9rem;
+    }
+
+    /* 2. Arreglamos el Hero para que el texto no empuje el diseño */
+    .hero h2 {
+        font-size: 1.8rem; /* Achicamos el título para que entre bien en pantallas chicas */
+    }
+    
+    .hero p {
+        font-size: 1rem; /* Texto un poquito más amigable para celular */
+    }
+    /* @media - Contacto*/
+    .contacto-flex {
+        flex-direction: column; /* Pone el formulario arriba y el mapa abajo en celulares */
+    }
+    
+    .contacto-mapa {
+        min-height: 300px; /* Un poco más bajo en pantallas chicas */
+    }
+}
+@media (max-width: 768px) {
+    .footer-fila-principal {
+        flex-direction: column; /* En celulares se vuelve una lista ordenada vertical */
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-nav ul {
+        flex-direction: column; /* Los links del menú se apilan amigablemente para el dedo */
+        gap: 15px;
+    }
+}

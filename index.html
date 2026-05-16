@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores | Freelancer</title>
+<link rel="icon" type="image/x-icon" href="assets/img/icon/incon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Vinculación de CSS -->
+
+    <link rel="stylesheet" href="./assets/css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <!-- Ahora todo el bloque del logo es un enlace clickable -->
+        <a href="index.html" class="logo-link">
+            <div class="logo">
+                <img src="assets/img/logo/logo.jpg" alt="logo">
+                <h1>Flores <span>Freelancer</span></h1>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="assets/page/productos.html">Productos</a></li>
+                <li><a href="assets/page/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección de Bienvenida (Hero) con Slider de Fondo-->
+
+        <section id="inicio" class="hero">
+            <!-- Este div vacío manejará las imágenes que cambian de fondo -->
+            <div class="hero-slider-bg"></div>
+
+            <!-- El contenido se queda fijo arriba -->
+            <div class="hero-contenido">
+                <h2>Diseño y Desarrollo Web que Impulsa tu Negocio</h2>
+                <p>Soy Diseñador Freelancer especializado en crear sitios web modernos, rápidos y adaptados a tus
+                    necesidades.</p>
+                <a href="assets/page/contacto.html" class="btn btn-oro">Contratar Servicio</a>
+            </div>
+        </section>
+        <!-- Sección de Servicios / Productos -->
+        <section id="servicios" class="seccion-servicios">
+            <div class="titulo-seccion">
+                <h2>Mis Servicios y Productos</h2>
+                <p>Soluciones digitales a la medida de tu negocio</p>
+            </div>
+
+            <!-- Este es el contenedor PADRE para Flexbox -->
+            <div class="contenedor-cards">
+
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <div class="card-icono">💻</div>
+                    <h3>Diseño Web</h3>
+                    <p>Páginas web modernas, atractivas y optimizadas para celulares y computadoras.</p>
+                    <span class="precio">$150 / u</span>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="card">
+                    <div class="card-icono">🚀</div>
+                    <h3>Optimización SEO</h3>
+                    <p>Mejoro el posicionamiento de tu página en Google para que consigas más clientes.</p>
+                    <span class="precio">$100 / u</span>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <div class="card-icono">🛒</div>
+                    <h3>Tiendas Online</h3>
+                    <p>Creación de e-commerce completas con pasarelas de pago para vender tus productos.</p>
+                    <span class="precio">$250 / u</span>
+                </div>
+
+            </div>
+        </section>
+    </main>
+    <!-- SECCION FOOTER-->
+   <footer>
+    <div class="footer-contenido">
+        
+        <div class="footer-fila-principal">
+            <a href="index.html">
+                <div class="footer-logo">
+                    <img src="assets/img/logo/logo.jpg" alt="Flores Freelancer">
+                </div>
+            </a>
+
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="assets/page/productos.html">Productos</a></li>
+                    <li><a href="assets/page/contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-redes">
+                <a href="#" class="red-social" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="red-social" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="red-social" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/tuNumeroDeTelefono" class="red-social" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+        </div>
+        
+        <p class="footer-copy">&copy; 2026 Flores Freelancer. Todos los derechos reservados.</p>
+    </div>
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+
+:root {
+    --color-principal: #13917c; 
+    --color-oscuro: #000307;
+    --color-blanco: #ffffff;
+    --color-oro: #d4af37; /* Este es el código hexadecimal para el oro/dorado metálico */
+    --fuente-base: 'Inter', sans-serif;
+}

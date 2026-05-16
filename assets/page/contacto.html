@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores | Freelancer</title>
+<link rel="icon" type="image/x-icon" href="../img/icon/incon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+     <!-- Font Awesome.-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Vinculación de CSS -->
+
+    <link rel="stylesheet" href="../css/styles.css">
+
+</head>
+
+<body>
+
+    <header>
+        <!-- Ahora todo el bloque del logo es un enlace clickable -->
+        <a href="../../index.html" class="logo-link">
+            <div class="logo">
+                <img src="../img/logo/logo.jpg" alt="logo">
+                <h1>Flores <span>Freelancer</span></h1>
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="../../index.html#servicios">Servicios</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- Contenido principal de contacto -->
+    <main class="contenedor-contacto">
+    <div class="titulo-seccion">
+        <h2>¿Le damos vida a tu idea?</h2>
+        <p>Detrás de cada gran sitio web hay una conversación genial. Cuéntame qué tienes en mente, cuáles son tus metas o simplemente saluda. ¡Estoy listo para ayudarte a impulsar tu negocio!</p>
+    </div>
+
+    <div class="contacto-bloque-superior">
+        <section class="contacto-formulario">
+            <p style="color: #6b7280; font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                🚀 ¡No te preocupes por tener un plan perfecto! Podemos diseñar la estrategia juntos desde cero. Escríbeme y te respondo en menos de 24 horas.
+            </p>
+
+            <form action="https://formspree.io/f/tu_id_de_formspree" method="POST" class="formulario">
+                <div class="grupo-input">
+                    <label for="nombre">Nombre Completo</label>
+                    <input type="text" id="nombre" name="name" placeholder="Ej. Juan Pérez" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="mensaje">Tu Mensaje</label>
+                    <textarea id="mensaje" name="message" rows="5" placeholder="Cuéntame sobre tu idea o negocio..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-oro btn-enviar">Enviar Mensaje</button>
+            </form>
+        </section>
+    </div>
+
+    <section class="contacto-mapa-abajo">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52485.4947936173!2d-58.76326755!3d-34.66848245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bc95434093dd6b%3A0x58d832f755e4a278!2sMerlo%2C%20Provincia de Buenos Aires!5e0!3m2!1ses-419!2sar!4v1715880000000!5m2!1ses-419!2sar" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+</main>
+
+    <!-- SECCION FOOTER-->
+    <footer>
+    <div class="footer-contenido">
+        
+        <div class="footer-fila-principal">
+            <a href="../../index.html">
+                <div class="footer-logo">
+                    <img src="../img/logo/logo.jpg" alt="Flores Freelancer">
+                </div>
+            </a>
+
+            <nav class="footer-nav">
+                <ul>
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../../index.html#servicios">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer-redes">
+                <a href="#" class="red-social" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="red-social" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="red-social" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/tuNumeroDeTelefono" class="red-social" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+        </div>
+        
+        <p class="footer-copy">&copy; 2026 Flores Freelancer. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+
+
+</body>
+
+</html>
