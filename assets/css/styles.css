@@ -1,16 +1,16 @@
+/*CSS IMPORTADOS*/
+
 @import "./variables.css";
 @import "./reset.css";
 
-/* A partir de aquí van los estilos de tus componentes (Header, etc.) */
-
-/* --- 2. ESTILOS MEJORADOS DEL HEADER --- */
+/* --- 1. ESTILOS DEL HEADER --- */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background-color: rgb(3, 0, 0); /* Blanco con un toque mínimo de transparencia */
-    backdrop-filter: blur(5px); /* Efecto esmerilado/borroso detrás del header (muy moderno) */
+    background-color: rgb(3, 0, 0); /* negro oscuro con un toque mínimo de transparencia */
+    backdrop-filter: blur(5px); /* Efecto esmerilado/borroso detrás del header */
     box-shadow: 0 4px 20px rgba(17, 2, 2, 0.664);
     position: sticky; /* Hace que el header se quede fijo arriba al hacer scroll */
     top: 0;
@@ -19,7 +19,7 @@ header {
 
 /* Quitar el estilo de enlace azul por defecto al contenedor del logo */
 .logo-link {
-    text-decoration: none;
+    text-decoration: none; /*Eliminar subrayado por defecto*/
     color: inherit;
 }
 /* Esto blinda al logo para que ignore cualquier efecto de hover no deseado */
@@ -38,7 +38,7 @@ header .logo {
 header .logo img {
     height: 45px;
     width: auto;
-    border-radius: 50%; /* Si tu logo es cuadrado, esto lo hará redondo y estilizado */
+    border-radius: 50%; /* Si el logo es cuadrado, esto lo hará redondo y estilizado */
     object-fit: cover;
 }
 
@@ -49,129 +49,91 @@ header .logo h1 {
     letter-spacing: -0.5px;
 }
 
-/* Resaltamos el "Freelancer" con tu color principal */
 header .logo h1 span {
-    color: var(--color-oro);
+    color: var(--color-oro); /*Cambia el color del texto "Freelancer" a dorado */
     font-weight: 400;
     font-size: 1rem;
-    display: block; /* Hace que "Freelancer" vaya abajo del nombre en texto chico, queda muy pro */
+    display: block; /* Hace que "Freelancer" vaya abajo del nombre en texto chico */
 }
 
-/* --- ENLACES DE NAVEGACIÓN CON EFECTO CUADRO --- */
+/* ---  ENLACES DE NAVEGACIÓN CON EFECTO CUADRO --- */
 header ul {
     display: flex;
     list-style: none;
     align-items: center; /* Asegura que todos los links estén centrados verticalmente */
-    gap: 10px; /* Achicamos un poco el espacio entre elementos porque el padding sumará tamaño */
+    gap: 10px; /* Se achica un poco el espacio entre elementos porque el padding sumará tamaño */
 }
 
 header nav a {
-    text-decoration: none;
+    text-decoration: none; /*Quitar subrayado por defecto*/
     color: var(--color-principal); 
     font-weight: 500; 
     font-size: 1rem;
-    
-    /* El truco: Creamos el espacio del cuadro desde el principio */
+    /* Crea el espacio del cuadro desde el principio */
     padding: 0.3rem 0.8rem; /* 0.6rem arriba/abajo y 1rem a los lados */
     border-radius: 5px;   /* Bordes suavemente redondeados para el cuadro */
     background-color: transparent; /* El fondo empieza siendo invisible */
-    
     /* Suaviza tanto el cambio de color de la letra como el del fondo */
     transition: all 0.3s ease; 
 }
 
-/* Efecto HOVER: Aquí pintamos el cuadro */
+/* Efecto HOVER: Aquí se pinta el cuadro */
 header nav a:hover {
     color: var(--color-oscuro); /* La letra cambia a dorado */
-    background-color: var(--color-oro); 
+    background-color: var(--color-oro); /*Cambia el fondo a dorado */
     
     
 }
 
-/* --- 5. SECCIÓN HERO CON SLIDER --- */
+/* --- 2. SECCIÓN HERO CON SLIDER - VIDEO--- */
 .hero {
-    position: relative; /* Necesario para que el fondo se posicione bien */
-    min-height: 80vh;   /* Ocupa el 80% de la altura de la pantalla */
+    position: relative;
+    height: 80vh; /* O la altura que ya tengas configurada */
+    width: 100%;
+    overflow: hidden; /* Oculta cualquier excedente del video */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+/* Estilos para el video de fondo */
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Clave: hace que el video llene el espacio como un fondo sin estirarse */
+    z-index: 1; /* Al fondo de todo */
+}
+
+/* Capa de contraste traslúcida */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 0, 0, 0.6); /* Capa negra con 60% de opacidad */
+    z-index: 2; /* Por encima del video, por debajo del texto */
+}
+
+/* Asegura que los textos floten por encima de todo */
+.contenido-hero {
+    position: relative;
+    z-index: 3; /* Al frente de todo */
     text-align: center;
     color: #ffffff;
-    overflow: hidden;   /* Evita que las imágenes se salgan */
-    padding: 2rem 5%;
 }
-
-/* El fondo animado */
-.hero-slider-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1; /* Se queda atrás */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    
-    /* Llamamos a la animación: dura 12 segundos, es infinita y suave */
-    animation: sliderFondo 12s infinite; 
+.contenido-hero p {
+    font-size: 1.rem;
+    margin-bottom: 3rem;
 }
-
-/* Capa oscura superpuesta para que el texto blanco se lea SIEMPRE bien */
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Capa negra con 50% de transparencia */
-    z-index: 2; /* Por encima del fondo, por debajo del texto */
-}
-
-/* El texto del Hero */
-.hero-contenido {
-    position: relative;
-    z-index: 3; /* Por encima de todo para que se pueda leer y clickear el botón */
-    max-width: 800px;
-}
-
-.hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-weight: 700;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    opacity: 0.9;
-}
-
-/* LA ANIMACIÓN: Cambia las imágenes en diferentes porcentajes de tiempo */
-@keyframes sliderFondo {
-    0%, 100% {
-        background-image: url(../img/cards/card4.jpg);
-    }
-    33% {
-        background-image: url(../img/cards/card5.jpg);
-    }
-    66% {
-        background-image: url(../img/cards/card7.webp);
-    }
-    66% {
-        background-image: url(../img/cards/card8.jpg);
-    }
-    
-}
-
-/* ==========================================================================
-   SECCIÓN SERVICIOS (Maquetado con Flexbox)
-   ========================================================================== */
+/* 3. SECCIÓN SERVICIOS (Maquetando con Flexbox)*/
 
 .seccion-servicios {
     padding: 5rem 5%;
-    background-color: #f9fafb; /* Un fondo gris casi blanco para que resalten las tarjetas */
+    background-color: #f9fafb; /* Un fondo gris casi blanco  */
 }
 
 .titulo-seccion {
@@ -190,7 +152,7 @@ header nav a:hover {
     font-size: 1.1rem;
 }
 
-/* CONTENEDOR PADRE: Aquí activamos Flexbox */
+/* CONTENEDOR PADRE: uso de Flexbox */
 .contenedor-cards {
     display: flex;
     flex-wrap: wrap;       /* Permite que las tarjetas bajen si no entran en la pantalla */
@@ -207,15 +169,13 @@ header nav a:hover {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     text-align: center;
-    
     /* Configuración elástica de Flexbox */
     flex: 1 1 300px; /* Crece y se achica, pero intenta medir mínimo 300px */
     max-width: 380px; /* Evita que una tarjeta sola se estire feo en pantallas medianas */
-    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Efecto cuando el usuario pasa el mouse por encima de la tarjeta */
+/* Efecto cuando se pasa el mouse por encima de la tarjeta */
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
@@ -243,35 +203,32 @@ header nav a:hover {
     display: block;
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--color-oro); /* Tu toque dorado distintivo para el precio */
+    color: var(--color-oro); /* Toque dorado distintivo para el precio */
 }
 
 
-/* ==========================================================================
-   BOTONES REUTILIZABLES (Estilo combinados con tu Nav)
-   ========================================================================== */
+/*  BOTONES REUTILIZABLES (Estilo combinados con tu Nav) */
 
-/* La clase base para CUALQUIER botón de la página */
+/* La clase base para cualquier botón de la página */
 .btn {
     display: inline-block;
     padding: 0.8rem 2rem;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    border-radius: 5px; /* Mismo redondeado que tu nav */
+    border-radius: 5px; /* Mismo redondeado que en el nav */
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease; 
 }
 
-/* El botón principal que combina con tu estilo */
+/* El botón principal que combina con el estilo dorado*/
 .btn-oro {
     background-color: transparent;
     color: var(--color-oro);
-    border: 2px solid var(--color-oro); /* Le da un borde dorado muy fino al principio */
+    border: 2px solid var(--color-oro); /* Se le da un borde dorado muy fino al principio (Megusta mucho lograr asi :))*/
 }
-
-/* Al pasar el mouse hace EXACTAMENTE el mismo efecto que tu menú */
+/* Al pasar el mouse hace exactamente el mismo efecto del menú */
 .btn-oro:hover {
     color: var(--color-oscuro);
     background-color: var(--color-oro);
@@ -279,19 +236,15 @@ header nav a:hover {
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4); /* Brillo dorado suave abajo */
 }
 
-
-
-/* ==========================================================================
-   PÁGINA DE CONTACTO (Formulario + Mapa) - Maquetado con Flexbox
-   ========================================================================== */
+/* PÁGINA DE CONTACTO (Formulario + Mapa) - Maquetado con Flexbox*/
 
 .contenedor-contacto {
-    padding: 5rem 5% 2rem 5%; /* Menos padding abajo porque viene el mapa */
+    padding: 5rem 5% 2rem 5%; /* Menos padding abajo porque se insertara el mapa */
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Centramos el formulario en la pantalla para que no quede gigante a lo ancho */
+/* Centrado del formulario en la pantalla para que no quede gigante a lo ancho */
 .contacto-bloque-superior {
     max-width: 650px;
     margin: 0 auto 4rem auto; /* 4rem de separación con el mapa de abajo */
@@ -343,7 +296,7 @@ header nav a:hover {
     border: 2px solid var(--color-oro);
 }
 
-/* El nuevo contenedor del Mapa abajo */
+/* Contenedor del Mapa abajo */
 .contacto-mapa-abajo {
     max-width: 1000px; /* Un mapa ancho y panorámico elegante */
     margin: 0 auto;
@@ -356,11 +309,7 @@ header nav a:hover {
     display: block; /* Elimina espacios vacíos raros abajo del iframe */
 }
 
-
-
-/* ==========================================================================
-   PÁGINA DE PRODUCTOS (CSS Grid Moderno)
-   ========================================================================== */
+/* PÁGINA DE PRODUCTOS (Con CSS Grid) (Pagina de productos)*/
 
 .contenedor-productos {
     padding: 5rem 5%;
@@ -368,12 +317,12 @@ header nav a:hover {
     margin: 0 auto;
 }
 
-/* EL CONTENEDOR PADRE: Aquí ocurre la magia de CSS Grid */
+/* EL CONTENEDOR PADRE: Con CSS Grid */
 .grid-productos {
     display: grid;
-    /* Truco Pro: Crea columnas automáticamente de mínimo 320px, si no entran las baja */
+    /* Truco trocaso : Crea columnas automáticamente de mínimo 320px, si no entran las baja */
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px; /* Separación matemática perfecta horizontal y vertical */
+    gap: 30px; /* Separación matemática igual horizontal y vertical */
     margin-top: 3rem;
 }
 
@@ -406,7 +355,7 @@ header nav a:hover {
     object-fit: cover; /* Ajusta la foto sin deformarla */
 }
 
-/* Etiquetas flotantes sobre la foto (ej: "Más Vendido") */
+/* Etiqueta flotante sobre la foto ("Más Vendido") */
 .etiqueta-tag {
     position: absolute;
     top: 15px;
@@ -458,19 +407,17 @@ header nav a:hover {
     color: var(--color-oro);
 }
 
-/* Retocamos un poquito tu botón para que quede más compacto en las tarjetas */
+/* Para que las tarjetas se compacten */
 .btn-producto {
     padding: 0.5rem 1.2rem;
     font-size: 0.9rem;
     border: 1px solid var(--color-oro);
 }
 
-/* ==========================================================================
-   FOOTER Y REDES SOCIALES
-   ========================================================================== */
+/* 4. FOOTER Y REDES SOCIALES */
 
 footer {
-    background-color: rgb(3, 0, 0); /* Tu negro característico */
+    background-color: rgb(3, 0, 0); /* Un toque oscuro */
     color: #ffffff;
     padding: 3rem 5% 2rem 5%;
     margin-top: auto;
@@ -484,19 +431,19 @@ footer {
     gap: 2rem;
 }
 
-/* El contenedor mágico: Pone el logo, la nav y las redes al mismo nivel */
+/* Para colocar el logo, la nav y las redes al mismo nivel (flex - horizontal) */
 .footer-fila-principal {
     display: flex;
-    justify-content: space-between; /* Separa los 3 elementos de extremo a extremo */
+    justify-content: space-between; /* Separa los elementos de extremo a extremo */
     align-items: center;          /* Los centra perfectamente de forma vertical */
     width: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Una línea divisoria muy sutil arriba del copy */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Una línea divisoria muy suave arriba del copy */
     padding-bottom: 2rem;
 }
 
 /* El Logo del footer idéntico al del header */
 .footer-logo img {
-    height: 45px; /* Mismo tamaño exacto que tu header */
+    height: 45px; /* Mismo tamaño exacto que el de header */
     width: auto;
     border-radius: 50%; /* Redondo y estilizado */
     object-fit: cover;
@@ -513,15 +460,21 @@ footer {
 }
 
 .footer-nav a {
-    color: var(--color-principal);
-    text-decoration: none;
+   
+     text-decoration: none;
+    color: var(--color-principal); 
+    font-weight: 500; 
     font-size: 1rem;
-    font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.3rem 0.8rem; /* 0.6rem arriba/abajo y 1rem a los lados */
+    border-radius: 5px;   /* Bordes suavemente redondeados para el cuadro */
+    background-color: transparent; /* El fondo empieza siendo invisible */
+    /* Suaviza tanto el cambio de color de la letra como el del fondo */
+    transition: all 0.3s ease; 
 }
 
 .footer-nav a:hover {
-    color: var(--color-oro);
+    color: var(--color-oscuro); /* La letra cambia a oscuro */
+    background-color: var(--color-oro); 
 }
 
 /* Contenedor de Redes */
@@ -564,9 +517,7 @@ footer {
 
 
 
-/* ==========================================================================
-   DISEÑO RESPONSIVO (Para Celulares y Pantallas Chicas)
-   ========================================================================== */
+/* 5. DISEÑO RESPONSIVO (Para Celulares y Pantallas Chicas) */
 
 @media (max-width: 768px) {
     
@@ -588,9 +539,9 @@ footer {
         font-size: 0.9rem;
     }
 
-    /* 2. Arreglamos el Hero para que el texto no empuje el diseño */
+    /* En el Hero para que el texto no empuje el diseño */
     .hero h2 {
-        font-size: 1.8rem; /* Achicamos el título para que entre bien en pantallas chicas */
+        font-size: 1.8rem; /* Se achica el título para que entre bien en pantallas chicas */
     }
     
     .hero p {
@@ -613,7 +564,7 @@ footer {
     }
 
     .footer-nav ul {
-        flex-direction: column; /* Los links del menú se apilan amigablemente para el dedo */
+        flex-direction: column; /* Los links del menú se apilan hacia abajo - columna */
         gap: 15px;
     }
 }
