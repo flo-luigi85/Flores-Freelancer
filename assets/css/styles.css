@@ -133,7 +133,7 @@ header nav a:hover {
 
 .seccion-servicios {
     padding: 5rem 5%;
-    background-color: #f9fafb; /* Un fondo gris casi blanco  */
+    background-color: #32cca657; /* Un fondo gris casi blanco  */
 }
 
 .titulo-seccion {
@@ -143,12 +143,12 @@ header nav a:hover {
 
 .titulo-seccion h2 {
     font-size: 2.2rem;
-    color: var(--color-oscuro);
+    color: #4D27F5;
     margin-bottom: 0.5rem;
 }
 
 .titulo-seccion p {
-    color: #6b7280; /* Gris suave para el subtítulo */
+    color: #A38FFA; /* Gris suave para el subtítulo */
     font-size: 1.1rem;
 }
 
@@ -164,7 +164,7 @@ header nav a:hover {
 
 /* CONTENEDOR HIJO: La Tarjeta Individual */
 .card {
-    background-color: #ffffff;
+    background-color: #2e3233;
     padding: 2.5rem 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
@@ -189,12 +189,12 @@ header nav a:hover {
 
 .card h3 {
     font-size: 1.4rem;
-    color: var(--color-oscuro);
+    color: #C87809;
     margin-bottom: 1rem;
 }
 
 .card p {
-    color: #4b5563;
+    color: #f9fbfc;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
 }
